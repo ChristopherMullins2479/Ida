@@ -1,0 +1,1 @@
+yesOptions=['Yes','yes','I do','i do','ya','Ya']
