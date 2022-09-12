@@ -1,33 +1,11 @@
 from moreHelpOptions import yesOptions
+from idaJokes import joke
+from idaMaths import mathsSum
+from idaWeather import weatherSearch
+from idaInfo import whoIsIda
 import pyttsx3
-import pyjokes
 
 idaSpeech = pyttsx3.init()
-
-def joke():
-
-    myJoke = pyjokes.get_joke(language="en", category="all")
-
-    idaSpeech.say('Heres a joke')
-    idaSpeech.runAndWait()
-
-    idaSpeech.say(myJoke)
-    idaSpeech.runAndWait()
-
-    idaSpeech.say('He HeeeHeeeHeeeHeee')
-    idaSpeech.runAndWait()
-
-def weatherSearch():
-    idaSpeech.say('What city would you like to check the weather for')
-    idaSpeech.runAndWait()
-    
-    cityWeatherChosen = input("What city would you like to check the weather for ?\n")
-    idaSpeech.say('looking up the weather in'+cityWeatherChosen)
-    idaSpeech.runAndWait()
-    idaSpeech.say('In' + cityWeatherChosen+ ' it is cloudy with a chance of Rain')
-    idaSpeech.runAndWait()
-
-
 
 idaIntroduction = ("Hello my name is Ida. I am your personal assistant.\n")
 idaSpeech.say(idaIntroduction)
@@ -49,6 +27,16 @@ while(needHelp == True):
 
     if('joke' in userInput or 'Joke' in userInput):
         joke()
+    
+    if('sum' in userInput or '-' in userInput or 'Maths' in userInput or 'maths' in userInput or 'Sum' in userInput or 'math' in userInput or 'Math' in userInput):
+        mathsSum()
+
+    if('who are you' in userInput ):
+        whoIsIda()
+    
+    if('goodbye' in userInput or 'Goodbye' in userInput or 'bye' in userInput or 'Bye' in userInput ):
+        exit
+        
 
     idaSpeech.say("Do you require more help ?")
     idaSpeech.runAndWait()
